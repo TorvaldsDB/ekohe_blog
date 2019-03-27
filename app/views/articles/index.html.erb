@@ -17,6 +17,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>View Count</th>
       <th style="width:30%">Content</th>
       <th>Author</th>
       <th>Published</th>
@@ -29,6 +30,7 @@
     <% @articles.each_with_index do |article, index| %>
       <tr>
         <td><%= article.title %></td>
+        <td><%= article.impressionist_count %></td>
         <td>
           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse_<%= index %>">
             <%= article.content.truncate_words(4) %>
