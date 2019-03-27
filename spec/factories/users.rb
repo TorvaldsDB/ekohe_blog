@@ -12,7 +12,7 @@ FactoryGirl.define do
     end
 
     trait :with_articles do
-      after(:create) { |user| create_list(:article, 2, user: user) }
+      after(:create) { |user| create_list(:article, 2, author: user) }
     end
 
     factory :user_with_articles do
@@ -21,7 +21,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |user, evaluator|
-        create_list(:article, evaluator.articles_count, user: user)
+        create_list(:article, evaluator.articles_count, author: user)
       end
     end
   end
