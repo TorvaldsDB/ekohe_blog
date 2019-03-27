@@ -3,7 +3,7 @@ class CreateArticles < ActiveRecord::Migration[5.2]
     create_table :articles do |t|
       t.string :title
       t.text :content
-      t.boolean :pubulished, index: true
+      t.boolean :published, index: true
       t.date :published_at
       t.references :user, foreign_key: true
 

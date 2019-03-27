@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :user, aliases: [:author] do
     email { Faker::Internet.email }
     password Faker::Internet.password(10, 20)
+    name { Faker::Name.name }
 
     trait :admin do
       admin true
