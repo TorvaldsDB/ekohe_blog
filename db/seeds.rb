@@ -8,11 +8,11 @@
 if Rails.env.development?
   unless User.exists?(admin: true)
     p '---------- New a admin ----------'
-    FactoryGirl.create(:admin, email: "admin@gmail.com", password: "ekoheadmin123")
-    p '---------- Congratulations! Created an admin. ----------'
+    FactoryGirl.create(:admin, :with_articles, email: "admin@gmail.com", password: "ekoheadmin123")
+    p '---------- Congratulations! Created an admin with two articles. ----------'
   end
 
   p '---------- New some users ----------'
-  FactoryGirl.create_list(:user, 50, password: "ekohe123")
-  p '---------- Congratulations! Created 50 users. ----------'
+  FactoryGirl.create_list(:user_with_articles, 50, password: "ekohe123")
+  p '---------- Congratulations! Created 50 users and every body has articles. ----------'
 end

@@ -5,7 +5,10 @@ RSpec.describe User, type: :model do
     expect(build(:user)).to be_valid
   end
 
+  it { is_expected.to have_many(:articles).dependent(:destroy) }
   it { is_expected.to have_secure_password }
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_length_of(:name).is_at_most(255) }
   it { is_expected.to validate_presence_of(:password) }
   it { is_expected.to validate_length_of(:password).is_at_least(6).is_at_most(255) }
   it { is_expected.to validate_presence_of(:email) }
