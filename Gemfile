@@ -66,6 +66,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '3.5.1'
+  gem 'shoulda-matchers'
 end
 
 gem 'factory_girl_rails', '~> 4.5.0'
