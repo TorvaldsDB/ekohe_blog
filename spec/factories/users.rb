@@ -13,7 +13,7 @@ FactoryGirl.define do
     end
 
     trait :with_articles do
-      after(:create) { |user| create_list(:article, 2, author: user) }
+      after(:create) { |user| create_list(:article, 50, author: user) }
     end
 
     factory :user_with_articles do

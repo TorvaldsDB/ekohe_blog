@@ -53,6 +53,6 @@ class ArticlesController < ApplicationController
     end
 
     def current_articles
-      current_user.admin ? Article : current_user.articles
+      current_user&.admin ? Article : current_user.articles
     end
 end
