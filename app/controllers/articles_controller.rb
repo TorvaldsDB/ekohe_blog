@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = current_user.articles.paginate(page: params[:page], per_page: 10)
+    @q = current_user.articles.search(params[:q])
+    @articles = @q.result.paginate(page: params[:page], per_page: 10)
   end
 
   def show
