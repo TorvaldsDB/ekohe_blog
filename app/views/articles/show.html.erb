@@ -1,10 +1,14 @@
-<div class="card text-left" style="width: 50rem;">
-  <div class="card-header">
+<div class="card text-left border-primary" style="width: 50rem;">
+  <div class="card-header text-primary">
     <h4 class="card-title"><%= @article.title %></h4>
   </div>
   <div class="card-body">
-    <h5 class="card-subtitle mb-2 text-muted"><%= @article.created_at.strftime("%T") %> by <%= @article.author_name %></h5><%= "#{@article.impressionist_count} views so far!" %>
-    <p class="card-text"><%= @article.content %></p>
+    <h5 class="card-subtitle mb-2">
+      <span class="text-muted"> <%= time_ago_in_words(@article.created_at) %> ago by </span>
+      <span class="text-info"><%= @article.author_name %></span>
+    </h5>
+    <span class="text-warning"><%= pluralize(@article.impressionist_count, "view") %> so far!</span>
+    <p class="card-text text-primary"><%= @article.content %></p>
   </div>
   <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-xs btn-primary" %>
   <%= link_to 'Back', articles_path, class: "btn btn-xs btn-primary" %>

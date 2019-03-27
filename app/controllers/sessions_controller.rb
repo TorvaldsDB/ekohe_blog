@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :logged_in_user
+
   def new
   end
 
@@ -6,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params.dig(:session, :email).downcase)
     if user&& user.authenticate(params.dig(:session, :password))
       log_in user
-      redirect_to articles_url
+      redirect_back_or(articles_url)
     else
       flash.now[:danger] = 'Invalid email/password combination. Please check it again'
       render :new
