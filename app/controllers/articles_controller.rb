@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = current_user.articles.search(params[:q])
+    @q = current_articles.recent.search(params[:q])
     @articles = @q.result.paginate(page: params[:page], per_page: 10)
   end
 
@@ -49,5 +49,9 @@ class ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit(:title, :content, :published, :published_at)
+    end
+
+    def current_articles
+      current_user.admin ? Article : current_user.articles
     end
 end
