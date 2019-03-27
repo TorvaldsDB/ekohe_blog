@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
 
   def index
     @q = current_articles.recent.search(params[:q])
