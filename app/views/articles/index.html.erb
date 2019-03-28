@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% if @articles.total_entries.zero? %>
-  <h1>Welcome come to <%= link_to "Ekohe", "https://ekohe.com/", target: :_blank %></h1>
+  <h1>More interesting in <%= link_to "Ekohe!", "https://ekohe.com/", target: :_blank %></h1>
   <%= link_to 'New a article. Have fun.^_^', new_article_path, class: 'btn btn-xs btn-primary pull-left' %>
 <% else %>
   <h1><%= pluralize(@articles.total_entries, "Article") %></h1>

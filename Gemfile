@@ -37,6 +37,7 @@ gem 'will_paginate-bootstrap'
 
 # datetime picker
 gem 'momentjs-rails', '>= 2.8.1'
+
 # see doc http://eonasdan.github.io/bootstrap-datetimepicker/
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 

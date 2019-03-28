@@ -1,2 +1,2 @@
-<h1>Hello <%= @user.name %>, welcome to Ekohe!</h1>
-<%= link_to "Surfing in Ekohe", articles_path, class: "btn btn-primary" %>
+<h1>Hello <%= @user.name %>, welcome to <%= link_to "Ekohe!", "https://ekohe.com/", target: :_blank %></h1>
+<%= link_to "Go surfing", articles_path, class: "btn btn-primary" %>
