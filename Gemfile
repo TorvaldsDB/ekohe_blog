@@ -74,6 +74,7 @@ gem 'factory_girl_rails', '~> 4.5.0'
 gem 'faker'
 
 gem 'ransack'
+gem 'pry-rails'
 
 gem 'impressionist'
 
