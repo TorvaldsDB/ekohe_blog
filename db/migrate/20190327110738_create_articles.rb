@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateArticles < ActiveRecord::Migration[5.2]
   def change
     create_table :articles do |t|
@@ -10,6 +12,6 @@ class CreateArticles < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :articles, [:user_id, :created_at]
+    add_index :articles, %i[user_id created_at]
   end
 end

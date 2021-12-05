@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Article < ApplicationRecord
   is_impressionable
-  belongs_to :author, class_name: "User", foreign_key: :user_id
+  belongs_to :author, class_name: 'User', foreign_key: :user_id
 
   validates :content, presence: true, length: { maximum: 140 }
 

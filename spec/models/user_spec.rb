@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it "has a valid factory" do
+  it 'has a valid factory' do
     expect(build(:user)).to be_valid
   end
 
@@ -14,13 +16,12 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_length_of(:email).is_at_most(255) }
 
-  describe "email testing" do
+  describe 'email testing' do
     let(:user) { build(:user) }
 
-    context "email with invalid addresses" do
-
+    context 'email with invalid addresses' do
       %w[user@example,com user_at_foo.org user.name@example.
-        foo@bar_baz.com foo@bar+baz.com].each do |invalid_address|
+         foo@bar_baz.com foo@bar+baz.com].each do |invalid_address|
         before do
           user.email = invalid_address
         end
@@ -29,7 +30,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context "the same addresses" do
+    context 'the same addresses' do
       let(:another_user) { create(:user) }
 
       before do
@@ -39,8 +40,8 @@ RSpec.describe User, type: :model do
       it { expect(user.valid?).to be_falsy }
     end
 
-    context "set case_sensitive false" do
-      let(:another_user) { create(:user, email: "USER@EXAMPLE.COM") }
+    context 'set case_sensitive false' do
+      let(:another_user) { create(:user, email: 'USER@EXAMPLE.COM') }
 
       before do
         user.email = another_user.email.downcase
